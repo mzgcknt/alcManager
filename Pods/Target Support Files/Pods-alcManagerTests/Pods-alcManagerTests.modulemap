@@ -1,0 +1,6 @@
+framework module Pods_alcManagerTests {
+  umbrella header "Pods-alcManagerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
