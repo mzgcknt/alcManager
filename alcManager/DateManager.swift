@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension NSDate {
+extension NSDate {  //underTopBarの選択削除
     func monthAgoDate() -> NSDate {
         let addValue = -1
         let calendar = NSCalendar(identifier: NSCalendar.Identifier.gregorian)!
