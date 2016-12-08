@@ -22,6 +22,7 @@
 		85CCC0F11DBF231000C223F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85CCC0EF1DBF231000C223F2 /* LaunchScreen.storyboard */; };
 		85CCC0FC1DBF231000C223F2 /* alcManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC0FB1DBF231000C223F2 /* alcManagerTests.swift */; };
 		85CCC1071DBF231000C223F2 /* alcManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC1061DBF231000C223F2 /* alcManagerUITests.swift */; };
+		85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */; };
 		F063E99BABB47E524FBAC35B /* Pods_alcManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B8AAE30991B9C652E880B /* Pods_alcManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		85CCC1021DBF231000C223F2 /* alcManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = alcManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CCC1061DBF231000C223F2 /* alcManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcManagerUITests.swift; sourceTree = "<group>"; };
 		85CCC1081DBF231000C223F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alcSelectViewController.swift; sourceTree = "<group>"; };
 		AC0223CDA06A00503CF4E940 /* Pods_alcManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alcManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5957C1C1292BAB2094E2C6 /* Pods-alcManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-alcManagerTests/Pods-alcManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C156C071A158A839EAC454EF /* Pods-alcManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alcManager/Pods-alcManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				85CCC0E41DBF231000C223F2 /* AppDelegate.swift */,
+				85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */,
 				859954791DC19FB0001CB01F /* CalendarCell.swift */,
 				85670BB41DD3544400513A01 /* DateManager.swift */,
 				85CCC0E61DBF231000C223F2 /* FirstViewController.swift */,
@@ -469,6 +472,7 @@
 				85CCC0E91DBF231000C223F2 /* SecondViewController.swift in Sources */,
 				85670BB51DD3544400513A01 /* DateManager.swift in Sources */,
 				8599547A1DC19FB0001CB01F /* CalendarCell.swift in Sources */,
+				85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */,
 				85CCC0E51DBF231000C223F2 /* AppDelegate.swift in Sources */,
 				85CCC0E71DBF231000C223F2 /* FirstViewController.swift in Sources */,
 				857EEFDE1DC12A4E009728BB /* RealmDB.swift in Sources */,

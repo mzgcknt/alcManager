@@ -39,7 +39,8 @@ class FirstViewController: UIViewController {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
-        let barchartDataSet = BarChartDataSet(values: dataEntries, label: "hoge")
+        
+        let barchartDataSet = BarChartDataSet(values: dataEntries, label: "alcAmount")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット .barData
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
         barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
@@ -55,7 +56,15 @@ class FirstViewController: UIViewController {
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)   //アニメーション
         barChartView.noDataText = "You need to provide data for the chart."
     }
+    
+    
+    @IBAction func alcSelectBtn(_ sender: AnyObject) {  //とりあえずボタン押した時の処理
         
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //遷移する前に何か値渡したかったら使う
+        
+    }
+    
     let realmDB = RealmDB() //インスタンス化
     
     func Contents(){        //初期化
