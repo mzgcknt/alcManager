@@ -27,7 +27,7 @@ extension NSDate {  //underTopBarの選択削除
     
 }
 
-class DateManager: NSObject {   //ここのコード不安
+class DateManager: NSObject {
 
     var currentMonthOfDates = [NSDate]() //表記する月の配列
     var selectedDate = NSDate()

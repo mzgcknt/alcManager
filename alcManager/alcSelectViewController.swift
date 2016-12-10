@@ -13,7 +13,9 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    var alcoholType = ["ビール","ウイスキー"]
+    let imageNames = ["beer-jar.png","drink.png"]   //画像のファイル名
+    let alcoholType = ["ビール","ワイン"]           //画像の名前
+    let alcAmount = ["350","120"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,14 +51,15 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "Cell")    //セルの再利用ができたらする
-        if cell == nil{ //セルの再利用ができない場合
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! alcTypeCell    //セルの再利用ができたらする
+        /*if cell == nil{ //セルの再利用ができない場合
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        }
+        }*/
         
-        cell?.textLabel?.text = alcoholType[indexPath.row]      //各セルのtextに追加
+        //cell?.textLabel?.text = alcoholType[indexPath.row]      //各セルのtextに追加
+        cell.setCell(imageNames: imageNames[indexPath.row], alcoholType: alcoholType[indexPath.row],alcAmount: alcAmount[indexPath.row])        //セルに値を設定
         
-        return cell!
+        return cell
     }
     
     

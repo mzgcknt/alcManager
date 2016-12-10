@@ -23,6 +23,12 @@
 		85CCC0FC1DBF231000C223F2 /* alcManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC0FB1DBF231000C223F2 /* alcManagerTests.swift */; };
 		85CCC1071DBF231000C223F2 /* alcManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC1061DBF231000C223F2 /* alcManagerUITests.swift */; };
 		85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */; };
+		85EC2DF11DFBC4960063E13E /* alcTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */; };
+		85EC2E081DFBE2B20063E13E /* beer-jar.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E031DFBE2B20063E13E /* beer-jar.png */; };
+		85EC2E091DFBE2B20063E13E /* drink.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E041DFBE2B20063E13E /* drink.png */; };
+		85EC2E0A1DFBE2B20063E13E /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E051DFBE2B20063E13E /* food.png */; };
+		85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E061DFBE2B20063E13E /* glass-1.png */; };
+		85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E071DFBE2B20063E13E /* glass.png */; };
 		F063E99BABB47E524FBAC35B /* Pods_alcManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B8AAE30991B9C652E880B /* Pods_alcManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,12 @@
 		85CCC1061DBF231000C223F2 /* alcManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = alcManagerUITests.swift; sourceTree = "<group>"; };
 		85CCC1081DBF231000C223F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alcSelectViewController.swift; sourceTree = "<group>"; };
+		85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alcTypeCell.swift; sourceTree = "<group>"; };
+		85EC2E031DFBE2B20063E13E /* beer-jar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "beer-jar.png"; path = "../../../../Downloads/my-icons-collection-2-3/png/beer-jar.png"; sourceTree = "<group>"; };
+		85EC2E041DFBE2B20063E13E /* drink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drink.png; path = "../../../../Downloads/my-icons-collection-2-3/png/drink.png"; sourceTree = "<group>"; };
+		85EC2E051DFBE2B20063E13E /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = food.png; path = "../../../../Downloads/my-icons-collection-2-3/png/food.png"; sourceTree = "<group>"; };
+		85EC2E061DFBE2B20063E13E /* glass-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass-1.png"; path = "../../../../Downloads/my-icons-collection-2-3/png/glass-1.png"; sourceTree = "<group>"; };
+		85EC2E071DFBE2B20063E13E /* glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass.png; path = "../../../../Downloads/my-icons-collection-2-3/png/glass.png"; sourceTree = "<group>"; };
 		AC0223CDA06A00503CF4E940 /* Pods_alcManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alcManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5957C1C1292BAB2094E2C6 /* Pods-alcManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-alcManagerTests/Pods-alcManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C156C071A158A839EAC454EF /* Pods-alcManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alcManager/Pods-alcManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -130,8 +142,10 @@
 		85CCC0E31DBF231000C223F2 /* alcManager */ = {
 			isa = PBXGroup;
 			children = (
+				85EC2DF41DFBCAC00063E13E /* images */,
 				85CCC0E41DBF231000C223F2 /* AppDelegate.swift */,
 				85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */,
+				85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */,
 				859954791DC19FB0001CB01F /* CalendarCell.swift */,
 				85670BB41DD3544400513A01 /* DateManager.swift */,
 				85CCC0E61DBF231000C223F2 /* FirstViewController.swift */,
@@ -161,6 +175,18 @@
 				85CCC1081DBF231000C223F2 /* Info.plist */,
 			);
 			path = alcManagerUITests;
+			sourceTree = "<group>";
+		};
+		85EC2DF41DFBCAC00063E13E /* images */ = {
+			isa = PBXGroup;
+			children = (
+				85EC2E031DFBE2B20063E13E /* beer-jar.png */,
+				85EC2E041DFBE2B20063E13E /* drink.png */,
+				85EC2E051DFBE2B20063E13E /* food.png */,
+				85EC2E061DFBE2B20063E13E /* glass-1.png */,
+				85EC2E071DFBE2B20063E13E /* glass.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		A5AF3A49759680E044ECFD5F /* Frameworks */ = {
@@ -307,6 +333,11 @@
 				85CCC0F11DBF231000C223F2 /* LaunchScreen.storyboard in Resources */,
 				85CCC0EE1DBF231000C223F2 /* Assets.xcassets in Resources */,
 				85CCC0EC1DBF231000C223F2 /* Main.storyboard in Resources */,
+				85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */,
+				85EC2E091DFBE2B20063E13E /* drink.png in Resources */,
+				85EC2E081DFBE2B20063E13E /* beer-jar.png in Resources */,
+				85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */,
+				85EC2E0A1DFBE2B20063E13E /* food.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +506,7 @@
 				85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */,
 				85CCC0E51DBF231000C223F2 /* AppDelegate.swift in Sources */,
 				85CCC0E71DBF231000C223F2 /* FirstViewController.swift in Sources */,
+				85EC2DF11DFBC4960063E13E /* alcTypeCell.swift in Sources */,
 				857EEFDE1DC12A4E009728BB /* RealmDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
