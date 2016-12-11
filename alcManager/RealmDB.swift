@@ -11,9 +11,10 @@ import RealmSwift
 class User:Object{
     
     dynamic var name = "hoge"
-    dynamic var age = 0
+    dynamic var id = 0
     
-    /*override class func primaryKey() -> String {    //とりあえずprimaryキーを付ける
+    override static func primaryKey() -> String {    //とりあえずprimaryキーを付ける
         return "id"
-    }*/
+    }
+    
 }

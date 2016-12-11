@@ -76,13 +76,23 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         print("うんち！")
     }
     
-    let user = User()   //インスタンス化
+    //let user = User()   //インスタンス化
     
     func Contents(){        //初期化
+        let realm = try! Realm()    //デフォルトのrealmを取得
+        let user = User()   //インスタンス化
         
+        user.id = 0
         user.name = "kenta"
-        user.age = 2
-        //save()
+        
+        try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
+            realm.add(user, update: true)   //同一キーの更新
+        }
+        /*let test = realm.objects(User.self)
+        for t in test{
+            print("name = ",t.name)
+        } ただのtest*/
+        //save(user:user)
         
         /*let realm = try! Realm()    //デフォルトのrealmを取得
         try! realm.write {
@@ -90,12 +100,20 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         }*/
     }
     
-    func save(){
-        do{
+    func save(user:Object){
             let realm = try! Realm()    //デフォルトのrealmを取得
-             try! realm.write {
-             realm.add(user)
-             }
-        }
+             /*try! realm.write {
+             realm.add(user)    //これやるとRunするたびに1つずつ追加されてるっぽい
+         User.realm.add (object: Object, update: Bool)  //同一idの例外処理対策 updateをtrueにする
+             }*/
+        
+        print("中身 = ",realm.objects(User.self))
     }
+            /*realm.objects(T)
+             クラスTで定義されたデータのみ、すべて取得する。ここから一部抽出したりする。
+             Tはタイプを指定する。うえでは、Userを指定しているので、Userで定義されたデータをすべて取得している
+             
+             for user in realm.objects(User) {
+             }
+             とすれば一つ一つ読みだすことも可能*/
 }
