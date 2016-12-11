@@ -29,6 +29,8 @@
 		85EC2E0A1DFBE2B20063E13E /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E051DFBE2B20063E13E /* food.png */; };
 		85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E061DFBE2B20063E13E /* glass-1.png */; };
 		85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E071DFBE2B20063E13E /* glass.png */; };
+		85EC2E0E1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */; };
+		85EC2E101DFBF57B0063E13E /* bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E0F1DFBF57B0063E13E /* bar-chart.png */; };
 		F063E99BABB47E524FBAC35B /* Pods_alcManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B8AAE30991B9C652E880B /* Pods_alcManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,8 @@
 		85EC2E051DFBE2B20063E13E /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = food.png; path = "../../../../Downloads/my-icons-collection-2-3/png/food.png"; sourceTree = "<group>"; };
 		85EC2E061DFBE2B20063E13E /* glass-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass-1.png"; path = "../../../../Downloads/my-icons-collection-2-3/png/glass-1.png"; sourceTree = "<group>"; };
 		85EC2E071DFBE2B20063E13E /* glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass.png; path = "../../../../Downloads/my-icons-collection-2-3/png/glass.png"; sourceTree = "<group>"; };
+		85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-with-spring-binder-and-date-blocks.png"; path = "../../../../Downloads/calendar-with-spring-binder-and-date-blocks.png"; sourceTree = "<group>"; };
+		85EC2E0F1DFBF57B0063E13E /* bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-chart.png"; path = "../../../../Downloads/bar-chart.png"; sourceTree = "<group>"; };
 		AC0223CDA06A00503CF4E940 /* Pods_alcManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alcManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC5957C1C1292BAB2094E2C6 /* Pods-alcManagerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManagerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-alcManagerTests/Pods-alcManagerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C156C071A158A839EAC454EF /* Pods-alcManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-alcManager/Pods-alcManager.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				85CCC0E31DBF231000C223F2 /* alcManager */,
+				85EC2DF41DFBCAC00063E13E /* images */,
 				85CCC0FA1DBF231000C223F2 /* alcManagerTests */,
 				85CCC1051DBF231000C223F2 /* alcManagerUITests */,
 				85CCC0E21DBF231000C223F2 /* Products */,
@@ -142,7 +147,6 @@
 		85CCC0E31DBF231000C223F2 /* alcManager */ = {
 			isa = PBXGroup;
 			children = (
-				85EC2DF41DFBCAC00063E13E /* images */,
 				85CCC0E41DBF231000C223F2 /* AppDelegate.swift */,
 				85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */,
 				85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */,
@@ -180,6 +184,8 @@
 		85EC2DF41DFBCAC00063E13E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				85EC2E0F1DFBF57B0063E13E /* bar-chart.png */,
+				85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */,
 				85EC2E031DFBE2B20063E13E /* beer-jar.png */,
 				85EC2E041DFBE2B20063E13E /* drink.png */,
 				85EC2E051DFBE2B20063E13E /* food.png */,
@@ -187,6 +193,7 @@
 				85EC2E071DFBE2B20063E13E /* glass.png */,
 			);
 			name = images;
+			path = alcManager;
 			sourceTree = "<group>";
 		};
 		A5AF3A49759680E044ECFD5F /* Frameworks */ = {
@@ -332,11 +339,13 @@
 			files = (
 				85CCC0F11DBF231000C223F2 /* LaunchScreen.storyboard in Resources */,
 				85CCC0EE1DBF231000C223F2 /* Assets.xcassets in Resources */,
+				85EC2E0E1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png in Resources */,
 				85CCC0EC1DBF231000C223F2 /* Main.storyboard in Resources */,
 				85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */,
 				85EC2E091DFBE2B20063E13E /* drink.png in Resources */,
 				85EC2E081DFBE2B20063E13E /* beer-jar.png in Resources */,
 				85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */,
+				85EC2E101DFBF57B0063E13E /* bar-chart.png in Resources */,
 				85EC2E0A1DFBE2B20063E13E /* food.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

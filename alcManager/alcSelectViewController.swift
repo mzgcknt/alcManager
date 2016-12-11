@@ -13,9 +13,9 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    let imageNames = ["beer-jar.png","drink.png"]   //画像のファイル名
-    let alcoholType = ["ビール","ワイン"]           //画像の名前
-    let alcAmount = ["350","120"]
+    let imageNames = ["beer-jar.png","drink.png","food.png","glass.png"]   //画像のファイル名
+    let alcoholType = ["ビール","ワイン","test","test"]           //画像の名前
+    let alcAmount = ["350","120","188","111"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +51,19 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! alcTypeCell    //セルの再利用ができたらする
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! alcTypeCell    //セルの再利用ができたらする alcTypeCellにキャスト
         /*if cell == nil{ //セルの再利用ができない場合
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         }*/
         
-        //cell?.textLabel?.text = alcoholType[indexPath.row]      //各セルのtextに追加
+        let altCellColor = UIColor(red:255/255, green:243.0/255, blue:243.0/255, alpha:1.0)     //偶数セルの色変化 後で調節すること
+        if (indexPath.row % 2 == 0) {
+            cell.backgroundColor = altCellColor;
+        } else {
+            cell.backgroundColor = UIColor.white;
+        }
+        
+        
         cell.setCell(imageNames: imageNames[indexPath.row], alcoholType: alcoholType[indexPath.row],alcAmount: alcAmount[indexPath.row])        //セルに値を設定
         
         return cell

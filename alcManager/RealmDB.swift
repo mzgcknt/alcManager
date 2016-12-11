@@ -8,8 +8,12 @@
 
 import RealmSwift
 
-class RealmDB:Object{
+class User:Object{
     
-    dynamic var name = ""
+    dynamic var name = "hoge"
     dynamic var age = 0
+    
+    /*override class func primaryKey() -> String {    //とりあえずprimaryキーを付ける
+        return "id"
+    }*/
 }

@@ -43,6 +43,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         calenderCollectionView.dataSource = self
         calenderCollectionView.backgroundColor = UIColor.white
         headerTitle.text = changeHeaderTitle(date: selectedDate) //追記
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +81,7 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.textLabel.text = weekArray[indexPath.row]
         } else {
             cell.textLabel.text = dateManager.conversionDateFormat(indexPath: indexPath as NSIndexPath)
-            //月によって1日の場所は異なる(後ほど説明します)
+            //月によって1日の場所は異なる
         }
         let cellSelectedBgView = UIView()
         cellSelectedBgView.backgroundColor = UIColor.lightBlue()
