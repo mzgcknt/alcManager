@@ -76,18 +76,26 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         print("うんち！")
     }
     
-    //let realmDB = RealmDB() //インスタンス化
-    let user = User()
+    let user = User()   //インスタンス化
     
     func Contents(){        //初期化
+        
         user.name = "kenta"
         user.age = 2
-        print("user.name = ",user.name)
-        print("user.age = ",user.age)
+        //save()
         
-        let realm = try! Realm()    //デフォルトのrealmを取得
+        /*let realm = try! Realm()    //デフォルトのrealmを取得
         try! realm.write {
             realm.add(user)
+        }*/
+    }
+    
+    func save(){
+        do{
+            let realm = try! Realm()    //デフォルトのrealmを取得
+             try! realm.write {
+             realm.add(user)
+             }
         }
     }
 }
