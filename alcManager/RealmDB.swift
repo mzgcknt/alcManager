@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class User:Object{
+class User:Object{      //間に合えばマイグレーションの処理
     
     dynamic var id = 0
     dynamic var name = ""

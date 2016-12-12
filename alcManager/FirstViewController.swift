@@ -37,6 +37,13 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         var dataEntries: [BarChartDataEntry] = []
         
+        let realm = try! Realm()
+        
+        let a = realm.object(ofType: User.self, forPrimaryKey: 1)! //a?→a!でキャスト
+        print("a = ",a)
+        print("a.value = ",a.value)
+        print("a.name",a.name)
+        
         for i in 0..<dataPoints.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
@@ -80,7 +87,6 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得
-        
         for i in 0..<days.count{
             let user = User()   //インスタンス化
             user.id = i
@@ -91,20 +97,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             }
         }
         
-        /*try! realm.write {
-            realm.add(user, update: true)   //同一キーの更新
-        }*/
-        /*user.name = "kenichi"*/
         //print("中身 = ",realm.objects(User.self))
-        /*try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
-        realm.add(user, update: true)   //同一キーの更新
-        }*/
         //save(user:user)
-        
-        /*let realm = try! Realm()    //デフォルトのrealmを取得
-        try! realm.write {
-            realm.add(user)
-        }*/
     }
     
     func save(user:Object){
