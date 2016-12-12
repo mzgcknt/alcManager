@@ -10,10 +10,10 @@ import RealmSwift
 
 class User:Object{
     
-    dynamic var name = "hoge"
     dynamic var id = 0
+    dynamic var name = ""
     
-    override static func primaryKey() -> String {    //とりあえずprimaryキーを付ける
+    override static func primaryKey() -> String? {    //とりあえずprimaryキーを付ける
         return "id"
     }
     

@@ -66,6 +66,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     @IBAction func alcSelectBtn(_ sender: AnyObject) {  //とりあえずボタン押した時の処理
         
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //遷移する前に何か値渡したかったら使う
         
     }
@@ -83,11 +84,15 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let user = User()   //インスタンス化
         
         user.id = 0
-        user.name = "kenta"
+        user.name = "mizoken"
         
-        try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
+        do {
+            try realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
             realm.add(user, update: true)   //同一キーの更新
-        }
+            }
+        }catch {
+            print("問題発生")
+            }
         /*let test = realm.objects(User.self)
         for t in test{
             print("name = ",t.name)
