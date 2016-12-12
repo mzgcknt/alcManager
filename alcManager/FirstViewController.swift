@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift   //, '>= 0.95.2'
+import RealmSwift   //macを再起動後、cleanからclean build folderしてxcodeを開けばいける
 import Charts
 
 class FirstViewController: UIViewController,ChartViewDelegate{
@@ -23,7 +23,6 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
         let unitsSold = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
         barChartView.delegate = self    //ChartViewDelegate
-        
         setChart(dataPoints: days,values: unitsSold)
         Contents()
     }
@@ -74,25 +73,31 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     //MARK:: --ChartViewDelegate--
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         //print("entry.value",entry.value(forKey: ), "in days[entry.xIndex]",days[entry.xIndex])
-        print("うんち！")
-    }
+        print("うんち！")    }
     
-    var user = User()   //インスタンス化
+    //var user = User()   //インスタンス化
     
     func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得
-        /*let user = User()   //インスタンス化*/
         
-        user.id = 0
-        user.name = "ken"
-        
-            try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
-            realm.add(user, update: true)   //同一キーの更新
+        for i in 0..<days.count{
+            let user = User()   //インスタンス化
+            user.id = i
+            user.name = days[i]
+            //print("user.id = ",user.id,"user.name = ",user.name)
+            try! realm.write {
+                realm.add(user, update: true)   //同一キーの更新
             }
-        /*let test = realm.objects(User.self)
-        for t in test{
-            print("name = ",t.name)
-        } ただのtest*/
+        }
+        
+        /*try! realm.write {
+            realm.add(user, update: true)   //同一キーの更新
+        }*/
+        /*user.name = "kenichi"*/
+        //print("中身 = ",realm.objects(User.self))
+        /*try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
+        realm.add(user, update: true)   //同一キーの更新
+        }*/
         //save(user:user)
         
         /*let realm = try! Realm()    //デフォルトのrealmを取得
