@@ -14,8 +14,12 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     @IBOutlet weak var barChartView: BarChartView!
     
-    var days:[String]!
+    var days:[String]!  // []? = nil のどっちがいいのか？
     var alcValue:[Double]!
+    
+    var daysCopy:[String]!
+    var valueCopy:[Double]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,12 +42,11 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         var dataEntries: [BarChartDataEntry] = []
         
         let realm = try! Realm()
-        var daysCopy:[String] = []
-        var valueCopy:[Double] = []
-        
+        daysCopy = []
+        valueCopy = []
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let a = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
-            daysCopy.append(a.name)
+            daysCopy.append(a.name) //ここでクラッシュする
             valueCopy.append(round(a.value*10)/10)   //データベースに保存したものを格納
         }
         print("daysCopy =" ,daysCopy)
@@ -88,36 +91,17 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         //print("entry.value",entry.value(forKey: ), "in days[entry.xIndex]",days[entry.xIndex])
         print("うんち！")    }
     
-    //var user = User()   //インスタンス化
-    
     func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得
-        for i in 0..<days.count{
+        for i in 0..<daysCopy.count{
             let user = User()   //インスタンス化
             user.id = i
-            user.name = days[i]
-            user.value = alcValue[i]
+            user.name = daysCopy[i]
+            user.value = valueCopy[i]
             try! realm.write {
                 realm.add(user, update: true)   //同一キーの更新
             }
         }
         //save(user:user)
     }
-    
-    func save(user:Object){
-            let realm = try! Realm()    //デフォルトのrealmを取得
-             /*try! realm.write {
-             realm.add(user)    //これやるとRunするたびに1つずつ追加されてるっぽい
-         User.realm.add (object: Object, update: Bool)  //同一idの例外処理対策 updateをtrueにする
-             }*/
-        
-        print("中身 = ",realm.objects(User.self))
-    }
-            /*realm.objects(T)
-             クラスTで定義されたデータのみ、すべて取得する。ここから一部抽出したりする。
-             Tはタイプを指定する。うえでは、Userを指定しているので、Userで定義されたデータをすべて取得している
-             
-             for user in realm.objects(User) {
-             }
-             とすれば一つ一つ読みだすことも可能*/
 }
