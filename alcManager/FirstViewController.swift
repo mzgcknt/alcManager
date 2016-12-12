@@ -25,7 +25,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         barChartView.delegate = self    //ChartViewDelegate
         
         setChart(dataPoints: days,values: unitsSold)
-        //Contents()
+        Contents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,14 +77,14 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         print("うんち！")
     }
     
-    //let user = User()   //インスタンス化
+    var user = User()   //インスタンス化
     
-    /*func Contents(){        //初期化
+    func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得
-        let user = User()   //インスタンス化
+        /*let user = User()   //インスタンス化*/
         
         user.id = 0
-        user.name = "mizo"
+        user.name = "ken"
         
             try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
             realm.add(user, update: true)   //同一キーの更新
@@ -116,5 +116,5 @@ class FirstViewController: UIViewController,ChartViewDelegate{
              
              for user in realm.objects(User) {
              }
-             とすれば一つ一つ読みだすことも可能*/*/
+             とすれば一つ一つ読みだすことも可能*/
 }
