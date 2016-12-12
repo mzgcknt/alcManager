@@ -12,6 +12,7 @@ class User:Object{
     
     dynamic var id = 0
     dynamic var name = ""
+    dynamic var value = 0.0
     
     override static func primaryKey() -> String? {    //とりあえずprimaryキーを付ける
         return "id"

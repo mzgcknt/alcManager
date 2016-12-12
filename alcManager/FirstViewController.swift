@@ -15,15 +15,16 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     @IBOutlet weak var barChartView: BarChartView!
     
     var days:[String]!
+    var alcValue:[Double]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
-        let unitsSold = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
+        alcValue = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
         barChartView.delegate = self    //ChartViewDelegate
-        setChart(dataPoints: days,values: unitsSold)
+        setChart(dataPoints: days,values: alcValue)
         Contents()
     }
 
@@ -84,7 +85,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             let user = User()   //インスタンス化
             user.id = i
             user.name = days[i]
-            //print("user.id = ",user.id,"user.name = ",user.name)
+            user.value = alcValue[i]
             try! realm.write {
                 realm.add(user, update: true)   //同一キーの更新
             }
