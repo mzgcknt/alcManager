@@ -38,14 +38,19 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         var dataEntries: [BarChartDataEntry] = []
         
         let realm = try! Realm()
+        var daysCopy:[String] = []
+        var valueCopy:[Double] = []
         
-        let a = realm.object(ofType: User.self, forPrimaryKey: 1)! //a?→a!でキャスト
-        print("a = ",a)
-        print("a.value = ",a.value)
-        print("a.name",a.name)
+        for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
+            let a = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
+            daysCopy.append(a.name)
+            valueCopy.append(round(a.value*10)/10)   //データベースに保存したものを格納
+        }
+        print("daysCopy =" ,daysCopy)
+        print("ValueCopy = ",valueCopy)
         
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [values[i]]) //values[i]をdouble型へ
+            let dataEntry = BarChartDataEntry(x: Double(i), yValues: [valueCopy[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
         
@@ -96,8 +101,6 @@ class FirstViewController: UIViewController,ChartViewDelegate{
                 realm.add(user, update: true)   //同一キーの更新
             }
         }
-        
-        //print("中身 = ",realm.objects(User.self))
         //save(user:user)
     }
     
