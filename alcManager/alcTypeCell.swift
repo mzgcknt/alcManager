@@ -8,7 +8,7 @@
 
 import UIKit
 
-class alcTypeCell: UITableViewCell {
+class alcTypeCell: UITableViewCell {    
 
     @IBOutlet weak var iconImage: UIImageView!
     @IBOutlet weak var name: UILabel!

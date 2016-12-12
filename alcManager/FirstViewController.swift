@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+import RealmSwift   //, '>= 0.95.2'
 import Charts
 
 class FirstViewController: UIViewController,ChartViewDelegate{
@@ -25,7 +25,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         barChartView.delegate = self    //ChartViewDelegate
         
         setChart(dataPoints: days,values: unitsSold)
-        Contents()
+        //Contents()
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,19 +79,15 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     //let user = User()   //インスタンス化
     
-    func Contents(){        //初期化
+    /*func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得
         let user = User()   //インスタンス化
         
         user.id = 0
-        user.name = "mizoken"
+        user.name = "mizo"
         
-        do {
-            try realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
+            try! realm.write {      // トランザクションを開始して、オブジェクトをRealmに追加する
             realm.add(user, update: true)   //同一キーの更新
-            }
-        }catch {
-            print("問題発生")
             }
         /*let test = realm.objects(User.self)
         for t in test{
@@ -120,5 +116,5 @@ class FirstViewController: UIViewController,ChartViewDelegate{
              
              for user in realm.objects(User) {
              }
-             とすれば一つ一つ読みだすことも可能*/
+             とすれば一つ一つ読みだすことも可能*/*/
 }

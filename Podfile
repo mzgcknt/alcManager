@@ -3,7 +3,7 @@
 
 use_frameworks!
 
-pod 'RealmSwift' , '>= 0.95.2'
+pod 'RealmSwift'
 pod 'Charts'
 
 target 'alcManager' do
