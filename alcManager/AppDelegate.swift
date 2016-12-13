@@ -12,10 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var myTabBarController: UITabBarController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        /*window = UIWindow(frame: UIScreen.main.bounds)
+        let firstView = FirstViewController()
+        let secondView = SecondViewController()
+        //firstView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 1)//アイコン
+        //secondView.tabBarItem = UITabBarItem(tabBarSystemItem: UITabBarSystemItem.bookmarks, tag: 2)
+        let viewArr = NSArray(objects: firstView,secondView)
+        myTabBarController = UITabBarController()
+        myTabBarController.setViewControllers(viewArr as? [UIViewController] , animated: false)
+        self.window?.rootViewController = myTabBarController
+        
+        window?.makeKeyAndVisible()*/ //これ書いたら新しいVC作って今までの表示されなくなる。Tabの非表示をなんとかする
+        
         return true
     }
 

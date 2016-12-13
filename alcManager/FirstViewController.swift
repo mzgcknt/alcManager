@@ -14,13 +14,15 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     @IBOutlet weak var barChartView: BarChartView!
     
-    var days:[String]!  // []? = nil のどっちがいいのか？
-    var alcValue:[Double]!
+    var days:[String] = []  // []? = nil のどっちがいいのか？
+    var alcValue:[Double] = []
     
-    var daysCopy:[String]!
-    var valueCopy:[Double]!
-    var testString:String?
+    var daysCopy:[String] = []
+    var valueCopy:[Double] = []
+    var getAlcAmount:String?
+    
     var a:String?
+    var test:[Double] = []
     
     
     override func viewDidLoad() {
@@ -29,9 +31,20 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
         alcValue = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
-        a = "first"
-        a = testString
-        print("a = ",a)
+        a = ""
+        a = getAlcAmount
+        if a != nil{
+            print("aの値は ",a)
+            print("a!の値は ",a!)
+            test.append(Double(a!)!)
+            print("test = ",test)
+        }
+        
+        /*let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd"  //取得するフォーマットの設定
+        let now = Date()    //現在の日時を取得
+        let today = formatter.string(from: now)     //今日の日付 MM/dd
+        print("today",today)*/
         barChartView.delegate = self    //ChartViewDelegate
         setChart(dataPoints: days,values: alcValue)
         Contents()
@@ -47,8 +60,17 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         var dataEntries: [BarChartDataEntry] = []
         
         let realm = try! Realm()
-        daysCopy = []
-        valueCopy = []
+        
+        if daysCopy.isEmpty{    //最初に必ず通る
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd"  //取得するフォーマットの設定
+            let now = Date()    //現在の日時を取得
+            let today = formatter.string(from: now)     //今日の日付 MM/dd
+            daysCopy.append(today)
+            valueCopy.append(0.0)
+        }
+        print("はじめのdaysCopy",daysCopy)
+        print("はじめのvalueCopy",valueCopy)
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let a = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
             daysCopy.append(a.name)
@@ -94,7 +116,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     //MARK:: --ChartViewDelegate--
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         //print("entry.value",entry.value(forKey: ), "in days[entry.xIndex]",days[entry.xIndex])
-        print("うんち！")    }
+        print("うんち！")
+    }
     
     func Contents(){        //初期化
         let realm = try! Realm()    //デフォルトのrealmを取得

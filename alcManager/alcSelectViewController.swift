@@ -37,16 +37,14 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueID"{
             let vc = segue.destination as! FirstViewController
-            print("sender = ",sender)
-            vc.testString = sender as? String
-            print("vc.testString!",vc.testString!)
+            vc.getAlcAmount = sender as? String
+            print("vc.getAlcAmount!",vc.getAlcAmount!)
         }
     }
     
     //MARK: -UITableViewDelegate- 
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //セルの選択が可能
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        //セルの選択が可能
         performSegue(withIdentifier: "segueID", sender:alcAmount[indexPath.row])
     }
     
