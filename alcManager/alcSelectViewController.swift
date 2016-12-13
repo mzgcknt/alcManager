@@ -16,6 +16,7 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     let imageNames = ["beer-jar.png","drink.png","food.png","glass.png"]   //画像のファイル名
     let alcoholType = ["ビール","ワイン","test","test"]           //画像の名前
     let alcAmount = ["350","120","188","111"]
+    var value:[Double]? //配列の初期化を阻止するために渡す配列
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
         if segue.identifier == "segueID"{
             let vc = segue.destination as! FirstViewController
             vc.getAlcAmount = sender as? String
-            print("vc.getAlcAmount!",vc.getAlcAmount!)
         }
     }
     
