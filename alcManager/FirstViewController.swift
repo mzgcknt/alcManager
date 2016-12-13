@@ -99,14 +99,14 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     
     @IBAction func alcSelectBtn(_ sender: AnyObject) {  //とりあえずボタン押した時の処理
-        performSegue(withIdentifier: "segue1", sender:valueCopy)
+        //performSegue(withIdentifier: "segue1", sender:valueCopy)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //遷移する前に何か値渡したかったら使う
-        if segue.identifier == "segue1"{
+        /*if segue.identifier == "segue1"{
             let vc = segue.destination as! alcSelectViewController
             vc.value = sender as? [Double]
-        }
+        }*/
         
     }
     
@@ -124,15 +124,15 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         print("はじめのdaysCopy Contents",daysCopy)
         print("はじめのvalueCopy Contents",valueCopy)
         
-        if daysCopy.isEmpty{    //最初に必ず通る
+        if getAlcAmount == nil{    //最初に必ず通る
          daysCopy.append(today) //daysCopy ["12/14"]
          valueCopy.append(0.0)  //valueCopy [0.0]
         }else{
             daysCopy.append(today)
-            let a = getAlcAmount
+            //let a = getAlcAmount
             print("getAlcAmount = ",getAlcAmount)
-            print("a = ",a)
-            valueCopy.append(Double(a!)!)
+            //print("a = ",a)
+            valueCopy.append(Double(getAlcAmount!)!)
         }
         
         print("append後のdaysCopy Contents",daysCopy)
