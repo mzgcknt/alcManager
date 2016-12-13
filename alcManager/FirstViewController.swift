@@ -19,6 +19,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     var daysCopy:[String]!
     var valueCopy:[Double]!
+    var testString:String?
+    var a:String?
     
     
     override func viewDidLoad() {
@@ -27,6 +29,9 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
         alcValue = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
+        a = "first"
+        a = testString
+        print("a = ",a)
         barChartView.delegate = self    //ChartViewDelegate
         setChart(dataPoints: days,values: alcValue)
         Contents()
@@ -46,7 +51,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         valueCopy = []
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let a = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
-            daysCopy.append(a.name) //ここでクラッシュする
+            daysCopy.append(a.name)
             valueCopy.append(round(a.value*10)/10)   //データベースに保存したものを格納
         }
         print("daysCopy =" ,daysCopy)

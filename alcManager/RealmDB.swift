@@ -14,7 +14,7 @@ class User:Object{      //間に合えばマイグレーションの処理
     dynamic var name = ""
     dynamic var value = 0.0
     
-    override static func primaryKey() -> String? {    //とりあえずprimaryキーを付ける
+    override static func primaryKey() -> String? {    //primaryキーの設定
         return "id"
     }
     

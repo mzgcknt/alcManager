@@ -162,7 +162,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sOO-Sm-cR1" id="CkV-ba-3IF">
-                                            <frame key="frameInset" width="375" height="99"/>
+                                            <frame key="frameInset" width="375" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bnT-mI-sIy">
@@ -189,6 +189,7 @@
                                             <outlet property="amount" destination="0hL-Wx-hq4" id="YaN-0x-iiG"/>
                                             <outlet property="iconImage" destination="bnT-mI-sIy" id="jJh-c7-11s"/>
                                             <outlet property="name" destination="XQt-Kh-ULh" id="XyO-0I-GAk"/>
+                                            <segue destination="9pv-A4-QxB" kind="show" identifier="segueID" id="ate-7l-gJa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -229,4 +230,7 @@
         <image name="bar-chart.png" width="24" height="24"/>
         <image name="calendar-with-spring-binder-and-date-blocks.png" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ate-7l-gJa"/>
+    </inferredMetricsTieBreakers>
 </document>

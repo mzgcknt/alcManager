@@ -31,13 +31,23 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     @IBAction func backBarButton(_ sender: AnyObject) {
-        dismiss(animated: true, completion: nil)    //とリあえずこれでやってみる
+        dismiss(animated: true, completion: nil)    //前のViewへ
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueID"{
+            let vc = segue.destination as! FirstViewController
+            
+            vc.testString = alcAmount[0]
+            print("vc.testString",vc.testString)
+        }
     }
     
     //MARK: -UITableViewDelegate- 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //セルの選択が可能
+        print("indexPath.row",alcAmount[indexPath.row])
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {   //セクションの数を決める
@@ -55,7 +65,6 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
         /*if cell == nil{ //セルの再利用ができない場合
             cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
         }*/
-        
         let altCellColor = UIColor(red:255/255, green:243.0/255, blue:243.0/255, alpha:1.0)     //偶数セルの色変化 後で調節すること
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = altCellColor;
