@@ -189,7 +189,6 @@
                                             <outlet property="amount" destination="0hL-Wx-hq4" id="YaN-0x-iiG"/>
                                             <outlet property="iconImage" destination="bnT-mI-sIy" id="jJh-c7-11s"/>
                                             <outlet property="name" destination="XQt-Kh-ULh" id="XyO-0I-GAk"/>
-                                            <segue destination="9pv-A4-QxB" kind="show" identifier="segueID" id="ate-7l-gJa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -200,6 +199,7 @@
                     <connections>
                         <outlet property="navigationBar" destination="7vm-9z-0Ys" id="nc3-Cq-HAG"/>
                         <outlet property="tableView" destination="fop-Wq-HqA" id="rOk-XH-jig"/>
+                        <segue destination="9pv-A4-QxB" kind="show" identifier="segueID" id="r3u-UL-ECc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb4-t9-7cx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,6 +231,6 @@
         <image name="calendar-with-spring-binder-and-date-blocks.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ate-7l-gJa"/>
+        <segue reference="r3u-UL-ECc"/>
     </inferredMetricsTieBreakers>
 </document>
