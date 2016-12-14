@@ -17,4 +17,15 @@ class User:Object{      //間に合えばマイグレーションの処理
     override static func primaryKey() -> String? {    //primaryキーの設定
         return "id"
     }
+    
+    func createNewUser(day: String, value: Double, id: Int) {
+        
+        let user = User()
+        user.day = day
+        user.value = value
+        user.id = id
+        
+        let realm = try! Realm()
+        try! realm.write{ realm.add(user, update: true) }
+    }
 }

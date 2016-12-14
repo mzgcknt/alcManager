@@ -37,23 +37,23 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     func setChart() { //Chartsの設定
         
         var dataEntries: [BarChartDataEntry] = []
-        
         let realm = try! Realm()
-        print("realm.objects(User.self)",realm.objects(User.self))  //day = 12/14,value = 0
-        print("count ",realm.objects(User.self).count)  //count = 1
+        print("realm.objects(User.self)",realm.objects(User.self))
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let setObject = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
+            print("setObject = ",setObject)
             days.append(setObject.day)
             alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
         }
-        print("days = " ,days)
-        print("alcValue = ",alcValue)
+
         for i in 0..<days.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [alcValue[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
+        
         let barchartDataSet = BarChartDataSet(values: dataEntries, label: "alcAmount")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット
+        
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
         barChartView.xAxis.setLabelCount(days.count, force: false)
         barChartView.scaleXEnabled = false
@@ -92,24 +92,27 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let now = Date()    //現在の日時を取得
         let today = formatter.string(from: now)     //今日の日付 MM/dd
         let realm = try! Realm()    //デフォルトのrealmを取得
-        
+        let user = User()
+        print("nilの前のrealm.objects(User.self).count",realm.objects(User.self).count)
         if getAlcAmount == nil{    //最初に必ず通る
-            let user = User()
-            user.id = 0
+            print("nilの時のrealm.objects(User.self).count",realm.objects(User.self).count)
+            user.createNewUser(day: today, value: 0.0 ,id: realm.objects(User.self).count)  //idをrealm.objects(User.self).countにすればいける？
+            /*user.id = 0
             user.day = today
-            user.value = 0.0
-            try! realm.write {
+            user.value = 0.0*/
+            /*try! realm.write {
                 realm.add(user, update: true)   //同一キーの更新
-            }
+            }*/
         }else{
-                let user = User()   //インスタンス化
-                user.id = 0
-                user.day = today
-                user.value = getAlcAmount!
-                print("userの中身",user)
-                try! realm.write {
-                    realm.add(user, update: true)   //同一キーの更新
-                }
+            //let user = User()   //インスタンス化
+            /*user.id = 0
+            user.day = today
+            user.value = getAlcAmount!*/
+            print("nilの時ではないrealm.objects(User.self).count",realm.objects(User.self).count)
+            user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count)
+            /*try! realm.write {
+                realm.add(user, update: true)   //同一キーの更新
+            }*/
         }
     }
 }

@@ -32,7 +32,6 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func alcFormura(abc:[Double], row:Int) -> Double{  //お酒の量（ml）×[アルコール度数（%）÷100]×0.8
         let sum = abc[row]*(alcCotent[row]*0.8)
-        print("sum = ",sum)
         return sum
     }
     
