@@ -13,22 +13,26 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navigationBar: UINavigationBar!
     
-    let imageNames = ["beer-jar.png","drink.png","food.png","glass.png"]   //画像のファイル名
-    let alcoholType = ["ビール","ワイン","test","test"]           //画像の名前
-    let alcAmount = ["350","120","188","111"]
+    let imageNames = ["beer.png","sake.png","wine.png","cocktail.png"]   //画像のファイル名
+    let alcoholType = ["ビール","日本酒","ワイン","カクテル類"]           //画像の名前
+    let alcAmount = ["350","180","120","180"]
     var value:[Double]? //配列の初期化を阻止するために渡す配列
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self   //SB上でもやってもいいけどとりあえず書く
         tableView.dataSource = self
-        
+        alcFormura()
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func alcFormura(){  //お酒の量（ml）×[アルコール度数（%）÷100]×0.8
+        
     }
     
     @IBAction func backBarButton(_ sender: AnyObject) {
@@ -45,6 +49,7 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     //MARK: -UITableViewDelegate- 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        //セルの選択が可能
+        
         performSegue(withIdentifier: "segueID", sender:alcAmount[indexPath.row])
     }
     
@@ -60,9 +65,6 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! alcTypeCell    //セルの再利用ができたらする alcTypeCellにキャスト
-        /*if cell == nil{ //セルの再利用ができない場合
-            cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
-        }*/
         let altCellColor = UIColor(red:255/255, green:243.0/255, blue:243.0/255, alpha:1.0)     //偶数セルの色変化 後で調節すること
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = altCellColor;
@@ -70,9 +72,7 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
             cell.backgroundColor = UIColor.white;
         }
         
-        
         cell.setCell(imageNames: imageNames[indexPath.row], alcoholType: alcoholType[indexPath.row],alcAmount: alcAmount[indexPath.row])        //セルに値を設定
-        
         return cell
     }
     

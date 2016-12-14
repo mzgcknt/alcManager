@@ -11,6 +11,7 @@
 		694727EF92D740B18D86F6B4 /* Pods_alcManagerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA72F484CF67F28AE379545B /* Pods_alcManagerUITests.framework */; };
 		85157A7B1DC0EC8F0076DE94 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85157A791DC0EC8F0076DE94 /* Realm.framework */; };
 		85157A7C1DC0EC8F0076DE94 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85157A7A1DC0EC8F0076DE94 /* RealmSwift.framework */; };
+		8545DED41E012356004A44F8 /* sake.png in Resources */ = {isa = PBXBuildFile; fileRef = 8545DED31E012356004A44F8 /* sake.png */; };
 		85670BB51DD3544400513A01 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85670BB41DD3544400513A01 /* DateManager.swift */; };
 		857EEFDE1DC12A4E009728BB /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EEFDD1DC12A4E009728BB /* RealmDB.swift */; };
 		8599547A1DC19FB0001CB01F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859954791DC19FB0001CB01F /* CalendarCell.swift */; };
@@ -24,11 +25,10 @@
 		85CCC1071DBF231000C223F2 /* alcManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC1061DBF231000C223F2 /* alcManagerUITests.swift */; };
 		85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */; };
 		85EC2DF11DFBC4960063E13E /* alcTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */; };
-		85EC2E081DFBE2B20063E13E /* beer-jar.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E031DFBE2B20063E13E /* beer-jar.png */; };
-		85EC2E091DFBE2B20063E13E /* drink.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E041DFBE2B20063E13E /* drink.png */; };
-		85EC2E0A1DFBE2B20063E13E /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E051DFBE2B20063E13E /* food.png */; };
+		85EC2E081DFBE2B20063E13E /* beer.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E031DFBE2B20063E13E /* beer.png */; };
+		85EC2E0A1DFBE2B20063E13E /* wine.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E051DFBE2B20063E13E /* wine.png */; };
 		85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E061DFBE2B20063E13E /* glass-1.png */; };
-		85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E071DFBE2B20063E13E /* glass.png */; };
+		85EC2E0C1DFBE2B20063E13E /* cocktail.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E071DFBE2B20063E13E /* cocktail.png */; };
 		85EC2E0E1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */; };
 		85EC2E101DFBF57B0063E13E /* bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EC2E0F1DFBF57B0063E13E /* bar-chart.png */; };
 		F063E99BABB47E524FBAC35B /* Pods_alcManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E30B8AAE30991B9C652E880B /* Pods_alcManager.framework */; };
@@ -57,6 +57,7 @@
 		85157A791DC0EC8F0076DE94 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = "Pods/../build/Debug-iphoneos/Realm/Realm.framework"; sourceTree = "<group>"; };
 		85157A7A1DC0EC8F0076DE94 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = "Pods/../build/Debug-iphoneos/RealmSwift/RealmSwift.framework"; sourceTree = "<group>"; };
 		8535C10E5DBE5D4A1E6364E8 /* Pods-alcManagerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-alcManagerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-alcManagerUITests/Pods-alcManagerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8545DED31E012356004A44F8 /* sake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sake.png; path = ../../../../Downloads/sake.png; sourceTree = "<group>"; };
 		85670BB41DD3544400513A01 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		857EEFDD1DC12A4E009728BB /* RealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		859954791DC19FB0001CB01F /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
@@ -76,11 +77,10 @@
 		85CCC1081DBF231000C223F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85EC2DEE1DF9120D0063E13E /* alcSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alcSelectViewController.swift; sourceTree = "<group>"; };
 		85EC2DF01DFBC4960063E13E /* alcTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = alcTypeCell.swift; sourceTree = "<group>"; };
-		85EC2E031DFBE2B20063E13E /* beer-jar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "beer-jar.png"; path = "../../../../Downloads/my-icons-collection-2-3/png/beer-jar.png"; sourceTree = "<group>"; };
-		85EC2E041DFBE2B20063E13E /* drink.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = drink.png; path = "../../../../Downloads/my-icons-collection-2-3/png/drink.png"; sourceTree = "<group>"; };
-		85EC2E051DFBE2B20063E13E /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = food.png; path = "../../../../Downloads/my-icons-collection-2-3/png/food.png"; sourceTree = "<group>"; };
+		85EC2E031DFBE2B20063E13E /* beer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = beer.png; path = "../../../../Downloads/my-icons-collection-2-3/png/beer.png"; sourceTree = "<group>"; };
+		85EC2E051DFBE2B20063E13E /* wine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = wine.png; path = "../../../../Downloads/my-icons-collection-2-3/png/wine.png"; sourceTree = "<group>"; };
 		85EC2E061DFBE2B20063E13E /* glass-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "glass-1.png"; path = "../../../../Downloads/my-icons-collection-2-3/png/glass-1.png"; sourceTree = "<group>"; };
-		85EC2E071DFBE2B20063E13E /* glass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glass.png; path = "../../../../Downloads/my-icons-collection-2-3/png/glass.png"; sourceTree = "<group>"; };
+		85EC2E071DFBE2B20063E13E /* cocktail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cocktail.png; path = "../../../../Downloads/my-icons-collection-2-3/png/cocktail.png"; sourceTree = "<group>"; };
 		85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "calendar-with-spring-binder-and-date-blocks.png"; path = "../../../../Downloads/calendar-with-spring-binder-and-date-blocks.png"; sourceTree = "<group>"; };
 		85EC2E0F1DFBF57B0063E13E /* bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bar-chart.png"; path = "../../../../Downloads/bar-chart.png"; sourceTree = "<group>"; };
 		AC0223CDA06A00503CF4E940 /* Pods_alcManagerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_alcManagerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,13 +184,13 @@
 		85EC2DF41DFBCAC00063E13E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				8545DED31E012356004A44F8 /* sake.png */,
 				85EC2E0F1DFBF57B0063E13E /* bar-chart.png */,
 				85EC2E0D1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png */,
-				85EC2E031DFBE2B20063E13E /* beer-jar.png */,
-				85EC2E041DFBE2B20063E13E /* drink.png */,
-				85EC2E051DFBE2B20063E13E /* food.png */,
+				85EC2E031DFBE2B20063E13E /* beer.png */,
+				85EC2E051DFBE2B20063E13E /* wine.png */,
 				85EC2E061DFBE2B20063E13E /* glass-1.png */,
-				85EC2E071DFBE2B20063E13E /* glass.png */,
+				85EC2E071DFBE2B20063E13E /* cocktail.png */,
 			);
 			name = images;
 			path = alcManager;
@@ -338,15 +338,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				85CCC0F11DBF231000C223F2 /* LaunchScreen.storyboard in Resources */,
+				8545DED41E012356004A44F8 /* sake.png in Resources */,
 				85CCC0EE1DBF231000C223F2 /* Assets.xcassets in Resources */,
 				85EC2E0E1DFBF15E0063E13E /* calendar-with-spring-binder-and-date-blocks.png in Resources */,
 				85CCC0EC1DBF231000C223F2 /* Main.storyboard in Resources */,
 				85EC2E0B1DFBE2B20063E13E /* glass-1.png in Resources */,
-				85EC2E091DFBE2B20063E13E /* drink.png in Resources */,
-				85EC2E081DFBE2B20063E13E /* beer-jar.png in Resources */,
-				85EC2E0C1DFBE2B20063E13E /* glass.png in Resources */,
+				85EC2E081DFBE2B20063E13E /* beer.png in Resources */,
+				85EC2E0C1DFBE2B20063E13E /* cocktail.png in Resources */,
 				85EC2E101DFBF57B0063E13E /* bar-chart.png in Resources */,
-				85EC2E0A1DFBE2B20063E13E /* food.png in Resources */,
+				85EC2E0A1DFBE2B20063E13E /* wine.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
