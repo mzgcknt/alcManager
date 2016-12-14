@@ -13,6 +13,7 @@ import Charts
 class FirstViewController: UIViewController,ChartViewDelegate{
     
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var days:[String] = []
     var alcValue:[Double] = []
@@ -103,4 +104,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             user.createNewUser(day: today, value: 0.0,id: realm.objects(User.self).count)   //初めにグラフのエラー吐かないために書いといたほうがいいかも
         }
     }
+    
+    @IBAction func weekOrMonth(_ sender: AnyObject) {
+    }
+    
 }
