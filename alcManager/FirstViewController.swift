@@ -22,8 +22,6 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
-        //alcValue = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
         barChartView.delegate = self    //ChartViewDelegate
         Contents()
         setChart()
@@ -38,16 +36,17 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         var dataEntries: [BarChartDataEntry] = []
         let realm = try! Realm()
-        print("realm.objects(User.self)",realm.objects(User.self))
+
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let setObject = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
             print("setObject = ",setObject)
             days.append(setObject.day)
             alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
         }
-        let user = User()
-        user.deleteUser(id: realm.objects(User.self).count-1)   // count-1 = id
-        print("realm.objects(User.self)",realm.objects(User.self))
+        if getAlcAmount == nil{ //消すのは最初だけ
+            let user = User()
+            user.deleteUser(id: realm.objects(User.self).count-1)   // count-1 = id
+        }
         
         for i in 0..<days.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [alcValue[i]]) //values[i]をdouble型へ
