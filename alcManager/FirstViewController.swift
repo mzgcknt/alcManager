@@ -16,7 +16,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     var days:[String] = []
     var alcValue:[Double] = []
-    var getAlcAmount:String?
+    var getAlcAmount:Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         //days = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月","11月","12月"]
         //alcValue = [50.3, 68.3, 113.3, 115.7, 160.8, 214.0, 220.4, 132.1, 176.2, 120.9,88.9,100.2]
-        
         barChartView.delegate = self    //ChartViewDelegate
         Contents()
         setChart()
@@ -75,20 +74,16 @@ class FirstViewController: UIViewController,ChartViewDelegate{
     
     
     @IBAction func alcSelectBtn(_ sender: AnyObject) {  //とりあえずボタン押した時の処理
-        //performSegue(withIdentifier: "segue1", sender:alcValue)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //遷移する前に何か値渡したかったら使う
-        /*if segue.identifier == "segue1"{
-            let vc = segue.destination as! alcSelectViewController
-            vc.value = sender as? [Double]
-        }*/
-        
+
     }
     
     //MARK:: --ChartViewDelegate--
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        //print("entry.value",entry.value(forKey: ), "in days[entry.xIndex]",days[entry.xIndex])
+   
     }
     
     func Contents(){        //初期化
@@ -96,25 +91,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         formatter.dateFormat = "MM/dd"  //取得するフォーマットの設定
         let now = Date()    //現在の日時を取得
         let today = formatter.string(from: now)     //今日の日付 MM/dd
-        
-        /*print("はじめのdays Contents",days)
-        print("はじめのalcValue Contents",alcValue)*/
-        /*if getAlcAmount == nil{    //最初に必ず通る
-         days.append(today) //days ["12/14"]
-         alcValue.append(0.0)  //alcValue [0.0]
-        }else{
-            days.append(today)
-            //let a = getAlcAmount
-            print("getAlcAmount = ",getAlcAmount)
-            //print("a = ",a)
-            alcValue.append(Double(getAlcAmount!)!)
-        }*/
-        
-        /*print("append後のdays Contents",days)
-        print("append後のalcValue Contents",alcValue)*/
-        
         let realm = try! Realm()    //デフォルトのrealmを取得
-        print("getAlcAmount = ",getAlcAmount)
+        
         if getAlcAmount == nil{    //最初に必ず通る
             let user = User()
             user.id = 0
@@ -122,20 +100,16 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             user.value = 0.0
             try! realm.write {
                 realm.add(user, update: true)   //同一キーの更新
-                print("write後の最初のuserの中身",user)
             }
         }else{
-            //for i in 0..<days.count{
-                print("通った")
                 let user = User()   //インスタンス化
                 user.id = 0
-                user.day = today     //days[i]
-                user.value = Double(getAlcAmount!)!   //alcValue[i]
+                user.day = today
+                user.value = getAlcAmount!
                 print("userの中身",user)
                 try! realm.write {
                     realm.add(user, update: true)   //同一キーの更新
                 }
-            //}
         }
     }
 }

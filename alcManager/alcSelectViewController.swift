@@ -15,14 +15,13 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     let imageNames = ["beer.png","sake.png","wine.png","cocktail.png"]   //画像のファイル名
     let alcoholType = ["ビール","日本酒","ワイン","カクテル類"]           //画像の名前
-    let alcAmount = ["350","180","120","180"]
-    var value:[Double]? //配列の初期化を阻止するために渡す配列
+    let alcAmount = ["350","180","120","180"]       //アルコール量
+    let alcCotent = [0.05,0.15,0.14,0.05]       //アルコール度数
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self   //SB上でもやってもいいけどとりあえず書く
         tableView.dataSource = self
-        alcFormura()
         // Do any additional setup after loading the view.
     }
 
@@ -31,8 +30,10 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
         // Dispose of any resources that can be recreated.
     }
     
-    func alcFormura(){  //お酒の量（ml）×[アルコール度数（%）÷100]×0.8
-        
+    func alcFormura(abc:[Double], row:Int) -> Double{  //お酒の量（ml）×[アルコール度数（%）÷100]×0.8
+        let sum = abc[row]*(alcCotent[row]*0.8)
+        print("sum = ",sum)
+        return sum
     }
     
     @IBAction func backBarButton(_ sender: AnyObject) {
@@ -42,15 +43,16 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueID"{
             let vc = segue.destination as! FirstViewController
-            vc.getAlcAmount = sender as? String
+            vc.getAlcAmount = sender as? Double
         }
     }
     
     //MARK: -UITableViewDelegate- 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        //セルの選択が可能
-        
-        performSegue(withIdentifier: "segueID", sender:alcAmount[indexPath.row])
+        let abc = alcAmount.map{Double($0)!}    //String → Double
+        //alcFormura(abc:abc, row:indexPath.row)
+        performSegue(withIdentifier: "segueID", sender:alcFormura(abc:abc, row:indexPath.row))
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {   //セクションの数を決める
