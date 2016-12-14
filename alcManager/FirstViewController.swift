@@ -93,26 +93,14 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let today = formatter.string(from: now)     //今日の日付 MM/dd
         let realm = try! Realm()    //デフォルトのrealmを取得
         let user = User()
-        print("nilの前のrealm.objects(User.self).count",realm.objects(User.self).count)
+        //let value = getAlcAmount
         if getAlcAmount == nil{    //最初に必ず通る
             print("nilの時のrealm.objects(User.self).count",realm.objects(User.self).count)
             user.createNewUser(day: today, value: 0.0 ,id: realm.objects(User.self).count)  //idをrealm.objects(User.self).countにすればいける？
-            /*user.id = 0
-            user.day = today
-            user.value = 0.0*/
-            /*try! realm.write {
-                realm.add(user, update: true)   //同一キーの更新
-            }*/
+            
         }else{
-            //let user = User()   //インスタンス化
-            /*user.id = 0
-            user.day = today
-            user.value = getAlcAmount!*/
-            print("nilの時ではないrealm.objects(User.self).count",realm.objects(User.self).count)
-            user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count)
-            /*try! realm.write {
-                realm.add(user, update: true)   //同一キーの更新
-            }*/
-        }
+                print("nilの時ではないrealm.objects(User.self).count",realm.objects(User.self).count)
+                user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count-1)
+            }
     }
 }

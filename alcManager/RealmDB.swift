@@ -24,8 +24,8 @@ class User:Object{      //間に合えばマイグレーションの処理
         user.day = day
         user.value = value
         user.id = id
-        
+        print("addするuser",user)
         let realm = try! Realm()
-        try! realm.write{ realm.add(user, update: true) }
+            try! realm.write{ realm.add(user, update: true) }
     }
 }
