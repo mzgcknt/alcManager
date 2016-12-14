@@ -37,7 +37,7 @@ class User:Object{
         let user = realm.object(ofType: User.self, forPrimaryKey: id)
         print("id = ",id)
         print("消されちゃうuser",user)
-        if id > 0{
+        if id >= 0{
             try! realm.write{ realm.delete(user!) }
         }
     }
