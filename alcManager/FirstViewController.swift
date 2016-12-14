@@ -45,13 +45,16 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             days.append(setObject.day)
             alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
         }
-
+        let user = User()
+        user.deleteUser(id: realm.objects(User.self).count-1)   // count-1 = id
+        print("realm.objects(User.self)",realm.objects(User.self))
+        
         for i in 0..<days.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [alcValue[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
         
-        let barchartDataSet = BarChartDataSet(values: dataEntries, label: "alcAmount")
+        let barchartDataSet = BarChartDataSet(values: dataEntries, label: "アルコール摂取量")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット
         
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
@@ -94,13 +97,14 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let realm = try! Realm()    //デフォルトのrealmを取得
         let user = User()
         //let value = getAlcAmount
+        print("getAlcAmount!",getAlcAmount)
         if getAlcAmount == nil{    //最初に必ず通る
             print("nilの時のrealm.objects(User.self).count",realm.objects(User.self).count)
             user.createNewUser(day: today, value: 0.0 ,id: realm.objects(User.self).count)  //idをrealm.objects(User.self).countにすればいける？
             
         }else{
                 print("nilの時ではないrealm.objects(User.self).count",realm.objects(User.self).count)
-                user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count-1)
+                user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count)
             }
     }
 }
