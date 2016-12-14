@@ -21,6 +21,8 @@ class User:Object{
     func createNewUser(day: String, value: Double, id: Int) {
         let realm = try! Realm()
         let user = User()
+        let search = realm.objects(User.self).filter("day = %@",day)
+        print("searchの結果 ",search)
         user.day = day
         user.value = value
         print("add後のuser.value",user.value)
@@ -33,8 +35,10 @@ class User:Object{
     func deleteUser(id: Int){
         let realm = try! Realm()
         let user = realm.object(ofType: User.self, forPrimaryKey: id)
-        print("削除するuser",user)
-        print("PrimaryKeyは",id)
-        try! realm.write{ realm.delete(user!) }
+        print("id = ",id)
+        print("消されちゃうuser",user)
+        if id > 0{
+            try! realm.write{ realm.delete(user!) }
+        }
     }
 }

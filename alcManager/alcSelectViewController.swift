@@ -50,7 +50,6 @@ class alcSelectViewController: UIViewController,UITableViewDelegate,UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        //セルの選択が可能
         let abc = alcAmount.map{Double($0)!}    //String → Double
-        //alcFormura(abc:abc, row:indexPath.row)
         performSegue(withIdentifier: "segueID", sender:alcFormura(abc:abc, row:indexPath.row))
     }
     

@@ -36,6 +36,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         var dataEntries: [BarChartDataEntry] = []
         let realm = try! Realm()
+        let user = User()
 
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let setObject = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
@@ -43,8 +44,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             days.append(setObject.day)
             alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
         }
-        if getAlcAmount == nil{ //消すのは最初だけ
-            let user = User()
+        if getAlcAmount == nil && user.value == 0.0{ //消すのは最初だけ
+
             user.deleteUser(id: realm.objects(User.self).count-1)   // count-1 = id
         }
         
@@ -95,15 +96,11 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let today = formatter.string(from: now)     //今日の日付 MM/dd
         let realm = try! Realm()    //デフォルトのrealmを取得
         let user = User()
-        //let value = getAlcAmount
-        print("getAlcAmount!",getAlcAmount)
-        if getAlcAmount == nil{    //最初に必ず通る
-            print("nilの時のrealm.objects(User.self).count",realm.objects(User.self).count)
-            user.createNewUser(day: today, value: 0.0 ,id: realm.objects(User.self).count)  //idをrealm.objects(User.self).countにすればいける？
-            
+        
+        if getAlcAmount != nil{
+            user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count)
         }else{
-                print("nilの時ではないrealm.objects(User.self).count",realm.objects(User.self).count)
-                user.createNewUser(day: today, value: getAlcAmount!,id: realm.objects(User.self).count)
-            }
+            user.createNewUser(day: today, value: 0.0,id: realm.objects(User.self).count)   //初めにグラフのエラー吐かないために書いといたほうがいいかも
+        }
     }
 }
