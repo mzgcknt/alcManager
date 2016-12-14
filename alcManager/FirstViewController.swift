@@ -39,7 +39,7 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         }*/
         barChartView.delegate = self    //ChartViewDelegate
         Contents()
-        setChart(dataPoints: daysCopy,values: valueCopy)
+        setChart()
         //Contents()
     }
 
@@ -48,32 +48,35 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         // Dispose of any resources that can be
     }
     
-    func setChart(dataPoints: [String], values: [Double]) { //Chartsの設定
+    func setChart() { //Chartsの設定
         
         var dataEntries: [BarChartDataEntry] = []
         
         let realm = try! Realm()
-        
-        print("はじめのdaysCopy setChart",daysCopy)
-        print("はじめのvalueCopy setChart",valueCopy)
+        let user = User()
+        print("user in setChar",user)   // name = "" value = 1.1
+        print("realm.objects(User.self)",realm.objects(User.self))  //name = 12/14,value = 0
+        print("count ",realm.objects(User.self).count)  //count = 1
+        /*print("はじめのdaysCopy setChart",daysCopy)
+        print("はじめのvalueCopy setChart",valueCopy)*/
         for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
             let setObject = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
             daysCopy.append(setObject.name)
             valueCopy.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
         }
-
-        print("daysCopy =" ,daysCopy)
+        
+        print("daysCopy = " ,daysCopy)
         print("ValueCopy = ",valueCopy)
         
-        for i in 0..<dataPoints.count {
+        for i in 0..<daysCopy.count {
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [valueCopy[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
         
         let barchartDataSet = BarChartDataSet(values: dataEntries, label: "alcAmount")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
-        barChartView.xAxis.setLabelCount(dataPoints.count, force: false)
+        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: daysCopy)
+        barChartView.xAxis.setLabelCount(daysCopy.count, force: false)
         barChartView.scaleXEnabled = false
          //https://github.com/danielgindi/Charts/issues/19092
 
@@ -114,9 +117,9 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         let now = Date()    //現在の日時を取得
         let today = formatter.string(from: now)     //今日の日付 MM/dd
         
-        print("はじめのdaysCopy Contents",daysCopy)
-        print("はじめのvalueCopy Contents",valueCopy)
-        if getAlcAmount == nil{    //最初に必ず通る
+        /*print("はじめのdaysCopy Contents",daysCopy)
+        print("はじめのvalueCopy Contents",valueCopy)*/
+        /*if getAlcAmount == nil{    //最初に必ず通る
          daysCopy.append(today) //daysCopy ["12/14"]
          valueCopy.append(0.0)  //valueCopy [0.0]
         }else{
@@ -125,22 +128,34 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             print("getAlcAmount = ",getAlcAmount)
             //print("a = ",a)
             valueCopy.append(Double(getAlcAmount!)!)
-        }
+        }*/
         
-        print("append後のdaysCopy Contents",daysCopy)
-        print("append後のvalueCopy Contents",valueCopy)
+        /*print("append後のdaysCopy Contents",daysCopy)
+        print("append後のvalueCopy Contents",valueCopy)*/
         
         let realm = try! Realm()    //デフォルトのrealmを取得
-        for i in 0..<daysCopy.count{
-            let user = User()   //インスタンス化
-            user.id = i
-            user.name = daysCopy[i]
-            user.value = valueCopy[i]
-            print("userの中身",user)
+        print("getAlcAmount = ",getAlcAmount)
+        if getAlcAmount == nil{    //最初に必ず通る
+            let user = User()
+            user.id = 0
+            user.name = today
+            user.value = 0.0
             try! realm.write {
                 realm.add(user, update: true)   //同一キーの更新
+                print("write後の最初のuserの中身",user)
             }
+        }else{
+            //for i in 0..<daysCopy.count{
+                print("通った")
+                let user = User()   //インスタンス化
+                user.id = 0
+                user.name = today     //daysCopy[i]
+                user.value = Double(getAlcAmount!)!   //valueCopy[i]
+                print("userの中身",user)
+                try! realm.write {
+                    realm.add(user, update: true)   //同一キーの更新
+                }
+            //}
         }
-        //save(user:user)
     }
 }
