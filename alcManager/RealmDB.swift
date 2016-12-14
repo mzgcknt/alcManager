@@ -22,7 +22,20 @@ class User:Object{
         let realm = try! Realm()
         let user = User()
         let search = realm.objects(User.self).filter("day = %@",day)
+        //var b = 0.0
         print("searchの結果 ",search)
+        //print("search.last",search.last)
+        /*for a in search{
+            print("aの中身",a)
+            if realm.object(ofType: User.self, forPrimaryKey: a.id)?.day == a.day{
+                print("a.dayを発見",a.day)
+                b = a.value
+                user.value = value + b
+            }else{
+                user.value = value
+            }
+        }
+        print("user.value = ",user.value)*/
         user.day = day
         user.value = value
         print("add後のuser.value",user.value)
