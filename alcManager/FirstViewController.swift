@@ -86,16 +86,23 @@ class FirstViewController: UIViewController,ChartViewDelegate{
 
         var days:[String] = []
         var alcValue:[Double] = []
-        
-        let predicate = realm.objects(User.self).filter("id >= 7")
+        var test = realm.objects(User.self).last?.id
+        test! = (test!-6)
+        print("test!",test!)
+        let predicate = realm.objects(User.self).filter("id >= %@",test!)
         print("predicate = ",predicate)
-        
-        
-        for i in predicate {   //オブジェクト数を取得し、その回数分ループ
-            let setObject = i //a?→a!でキャスト
-            print("setObject = ",setObject)
-            days.append(setObject.day)
-            alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
+        if x == 1{
+            for i in predicate {   //オブジェクト数を取得し、その回数分ループ
+                let setObject = i //a?→a!でキャスト
+                days.append(setObject.day)
+                alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
+            }
+        }else{
+            for i in 0..<realm.objects(User.self).count {   //オブジェクト数を取得し、その回数分ループ
+                let setObject = realm.object(ofType: User.self, forPrimaryKey: i)! //a?→a!でキャスト
+                days.append(setObject.day)
+                alcValue.append(round(setObject.value*10)/10)   //データベースに保存していた数値を格納
+            }
         }
         /*if getAlcAmount == nil && user.value == 0.0{ //消すのは最初だけ
             user.deleteUser(id: realm.objects(User.self).count-1)   // count-1 = id
