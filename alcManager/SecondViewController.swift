@@ -21,7 +21,7 @@ extension UIColor {
 class SecondViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
         let dateManager = DateManager() //DateManagerをインスタンス化
         let daysPerWeek: Int = 7
-        let cellMargin: CGFloat = 2.0
+        let cellMargin: CGFloat = 1.0
         var selectedDate = NSDate()
         var today: NSDate!
         let weekArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
@@ -130,8 +130,18 @@ class SecondViewController: UIViewController, UICollectionViewDataSource, UIColl
         headerTitle.text = changeHeaderTitle(date: selectedDate)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segue"{
+            let vc = segue.destination as! conditionViewController
+            vc.getValue = sender as! Int
+        }
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {     //Cellが選択された時
         print("選択されてるんかな？")
+        print(collectionView.cellForItem(at: indexPath))
+        performSegue(withIdentifier: "segue", sender:indexPath.row)
+        
     }
 }
 

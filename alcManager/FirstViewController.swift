@@ -13,7 +13,6 @@ import Charts
 class FirstViewController: UIViewController,ChartViewDelegate{
     
     @IBOutlet weak var barChartView: BarChartView!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var wOm: UISegmentedControl!
     
@@ -58,19 +57,21 @@ class FirstViewController: UIViewController,ChartViewDelegate{
             let dataEntry = BarChartDataEntry(x: Double(i), yValues: [alcValue[i]]) //values[i]をdouble型へ
             dataEntries.append(dataEntry)
         }
-        
         let barchartDataSet = BarChartDataSet(values: dataEntries, label: "アルコール摂取量")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット
-        
+        setView(days:days)
+
+        barChartView.data = ChartData      //Viewへ追加
+    }
+    
+    func setView(days:[String]){
         barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
         barChartView.xAxis.setLabelCount(days.count, force: false)
         barChartView.scaleXEnabled = false
-         //https://github.com/danielgindi/Charts/issues/19092
-
-        let ll = ChartLimitLine(limit: 10.0, label: "Target")
-        barChartView.rightAxis.addLimitLine(ll) //Limit lineの設定
-
-        barChartView.data = ChartData      //Viewへ追加
+        //https://github.com/danielgindi/Charts/issues/19092
+        
+        /*let ll = ChartLimitLine(limit: 10.0, label: "Target")
+        barChartView.rightAxis.addLimitLine(ll) //Limit lineの設定*/
         barChartView.xAxis.labelPosition = .bottom //x軸を下側に設定
         barChartView.chartDescription?.text = ""    //descriptionのテキストを消す
         barChartView.xAxis.drawGridLinesEnabled = false //x軸の方眼を非表示
@@ -115,23 +116,8 @@ class FirstViewController: UIViewController,ChartViewDelegate{
         
         let barchartDataSet = BarChartDataSet(values: dataEntries, label: "アルコール摂取量")
         let ChartData = BarChartData(dataSet: barchartDataSet)       //BarChartをセット
-        
-        barChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: days)
-        barChartView.xAxis.setLabelCount(days.count, force: false)
-        barChartView.scaleXEnabled = false
-        //https://github.com/danielgindi/Charts/issues/19092
-        
-        let ll = ChartLimitLine(limit: 10.0, label: "Target")
-        barChartView.rightAxis.addLimitLine(ll) //Limit lineの設定
-        
+        setView(days:days)
         barChartView.data = ChartData      //Viewへ追加
-        barChartView.xAxis.labelPosition = .bottom //x軸を下側に設定
-        barChartView.chartDescription?.text = ""    //descriptionのテキストを消す
-        barChartView.xAxis.drawGridLinesEnabled = false //x軸の方眼を非表示
-        barChartView.pinchZoomEnabled = false       //ピンチした際のズームを無効
-        barChartView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)  //背景色の設定
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)   //アニメーション
-        barChartView.noDataText = "You need to provide data for the chart."
     }
     
     @IBAction func alcSelectBtn(_ sender: AnyObject) {  //とりあえずボタン押した時の処理

@@ -15,6 +15,7 @@
 		85670BB51DD3544400513A01 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85670BB41DD3544400513A01 /* DateManager.swift */; };
 		857EEFDE1DC12A4E009728BB /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857EEFDD1DC12A4E009728BB /* RealmDB.swift */; };
 		8599547A1DC19FB0001CB01F /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 859954791DC19FB0001CB01F /* CalendarCell.swift */; };
+		85AF73CC1E0239C100611AED /* conditionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AF73CB1E0239C100611AED /* conditionViewController.swift */; };
 		85CCC0E51DBF231000C223F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC0E41DBF231000C223F2 /* AppDelegate.swift */; };
 		85CCC0E71DBF231000C223F2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC0E61DBF231000C223F2 /* FirstViewController.swift */; };
 		85CCC0E91DBF231000C223F2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CCC0E81DBF231000C223F2 /* SecondViewController.swift */; };
@@ -61,6 +62,7 @@
 		85670BB41DD3544400513A01 /* DateManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		857EEFDD1DC12A4E009728BB /* RealmDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
 		859954791DC19FB0001CB01F /* CalendarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		85AF73CB1E0239C100611AED /* conditionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = conditionViewController.swift; path = ../conditionViewController.swift; sourceTree = "<group>"; };
 		85CCC0E11DBF231000C223F2 /* alcManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = alcManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85CCC0E41DBF231000C223F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85CCC0E61DBF231000C223F2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				859954791DC19FB0001CB01F /* CalendarCell.swift */,
 				85670BB41DD3544400513A01 /* DateManager.swift */,
 				85CCC0E61DBF231000C223F2 /* FirstViewController.swift */,
+				85AF73CB1E0239C100611AED /* conditionViewController.swift */,
 				85CCC0E81DBF231000C223F2 /* SecondViewController.swift */,
 				857EEFDD1DC12A4E009728BB /* RealmDB.swift */,
 				85CCC0EA1DBF231000C223F2 /* Main.storyboard */,
@@ -511,6 +514,7 @@
 			files = (
 				85CCC0E91DBF231000C223F2 /* SecondViewController.swift in Sources */,
 				85670BB51DD3544400513A01 /* DateManager.swift in Sources */,
+				85AF73CC1E0239C100611AED /* conditionViewController.swift in Sources */,
 				8599547A1DC19FB0001CB01F /* CalendarCell.swift in Sources */,
 				85EC2DEF1DF9120D0063E13E /* alcSelectViewController.swift in Sources */,
 				85CCC0E51DBF231000C223F2 /* AppDelegate.swift in Sources */,

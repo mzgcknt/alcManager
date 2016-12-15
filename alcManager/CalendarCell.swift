@@ -21,6 +21,8 @@ class CalendarCell: UICollectionViewCell {      //ここを自作セルにしな
         textLabel.textAlignment = NSTextAlignment.center
         // Cellに追加
         self.addSubview(textLabel!)
+        
+        
     }
     
     override init(frame: CGRect) {
